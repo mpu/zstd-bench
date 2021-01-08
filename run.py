@@ -43,7 +43,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('-cmd', required=True)
     ap.add_argument('-levels', default='1') #default='1,5,7,16,19,22')
-    ap.add_argument('-ldmwlog', default='27,30')
+    ap.add_argument('-ldmwin', default='27,30')
     ap.add_argument('-nruns', default=5, type=int)
     ap.add_argument('-bench', default=0, type=int)
     ap.add_argument('-singlethreaded', action='store_true')
@@ -54,7 +54,7 @@ if __name__ == '__main__':
         logging.basicConfig(level=logging.INFO)
 
     lvls = [int(l) for l in args.levels.split(',')]
-    wins = [int(w) for w in args.ldmwlog.split(',')]
+    wins = [int(w) for w in args.ldmwin.split(',')]
 
     files = ['l5.tar']
     if args.bench > 0:
@@ -63,6 +63,7 @@ if __name__ == '__main__':
         files += ['hhvm-rt.tar']
     if args.bench > 2:
         files += ['bkup.tar'] 
+    files = ['data/' + f for f in files]
 
     cmd = args.cmd if args.singlethreaded else f'{args.cmd} -T0'
 
