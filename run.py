@@ -8,7 +8,6 @@ import logging
 
 def run(cmd):
     logging.info(f'running "{cmd}"')
-    pipe = subprocess.PIPE
     tbeg = time.time()
     out = subprocess.check_output(cmd, shell=True)
     tend = time.time()
@@ -37,7 +36,7 @@ def runbench(cmd, lvls, wins, files, nruns):
             best = min(result['times'])
             size = os.path.getsize(file)
             pcnt = 100. * float(result['compressed']) / size
-            print(f'{file}, `{config}`, {pcnt:.2f}%, {best:.3f}s')
+            print(f'{file}, `{config}`, {pcnt:.2f}%, {best:.3f}s', flush=True)
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
