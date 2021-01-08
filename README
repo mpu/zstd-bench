@@ -1,0 +1,21 @@
+=== Benchmark data ===
+
+- l5.tar (544M)
+    the first 544M of a linux kernel archive
+- l1w.tar (2G)
+    2 snapshots 1 week appart of the linux
+    kernel repo concatenated
+        36bbbd0e234d817938bdc52121a0f5473b3e58f5 (Jan 4 2021)
+        0e1d9ca1766f5d95fb881f57b6c4a1ffa63d4648 (Dec 28 2020)
+- l1m.tar (2G)
+    same 1 month appart
+        36bbbd0e234d817938bdc52121a0f5473b3e58f5 (Jan 4 2021)
+        e0efb3168d34dc8c8c72718672b8902e40efff8f (Dec 3 2020)
+- l1y.tar (1.9G)
+    same 1 year appart
+        36bbbd0e234d817938bdc52121a0f5473b3e58f5 (Jan 4 2021)
+        e98910bee6097b7c0f7beb76ab1d70ee52931d40 (Dec 24 2019)
+- hhvm-rt.tar (5.9G)
+    a packaged version of HHVM
+- bkup.tar (28G)
+    a backup of my work machine
