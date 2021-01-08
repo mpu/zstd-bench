@@ -33,22 +33,22 @@ if __name__ == '__main__':
     br = readresults(args.base)
     er = readresults(args.eval)
 
-    print('.--------------------------------------------------------------------.')
-    print('| FILE                 | CONFIG               | DEFLATE Δ | TIME Δ   |')
-    print('|--------------------------------------------------------------------|')
+    print('.---------------------------------------------------------------------.')
+    print('| FILE                 | CONFIG               | DEFLATE Δ | TIME Δ    |')
+    print('|---------------------------------------------------------------------|')
     for itm in sorted(set(br.keys()) | set((er.keys()))):
         (file, config) = itm
         line = f'| {file.ljust(20)} | {config.ljust(20)} | '
         if itm not in br:
-            print(line + 'only in eval'.ljust(32) + '|')
+            print(line + 'eval only | eval only |')
             continue
         if itm not in er:
-            print(line + 'only in base'.ljust(32) + '|')
+            print(line + 'base only | base only |')
             continue
         b = br[itm]
         e = er[itm]
         flatedelta = delta(b['sizepcnt'], e['sizepcnt']) + ' '
-        timedelta = delta(b['time'], e['time'])
+        timedelta = delta(b['time'], e['time']) + ' '
         print(line + f'{flatedelta} | {timedelta} |')
-    print('+--------------------------------------------------------------------+')
+    print('+---------------------------------------------------------------------+')
 
