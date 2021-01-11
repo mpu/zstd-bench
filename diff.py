@@ -33,9 +33,8 @@ if __name__ == '__main__':
     br = readresults(args.base)
     er = readresults(args.eval)
 
-    print('.---------------------------------------------------------------------.')
     print('| FILE                 | CONFIG               | DEFLATE Δ | TIME Δ    |')
-    print('|---------------------------------------------------------------------|')
+    print('|----------------------|----------------------|-----------|-----------|')
     for itm in sorted(set(br.keys()) | set((er.keys()))):
         (file, config) = itm
         line = f'| {file.ljust(20)} | {config.ljust(20)} | '
@@ -50,5 +49,4 @@ if __name__ == '__main__':
         flatedelta = delta(b['sizepcnt'], e['sizepcnt']) + ' '
         timedelta = delta(b['time'], e['time']) + ' '
         print(line + f'{flatedelta} | {timedelta} |')
-    print('+---------------------------------------------------------------------+')
 
