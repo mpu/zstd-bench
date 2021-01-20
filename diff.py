@@ -23,7 +23,11 @@ def delta(base, eval):
     else:
         pcnt = 100 * (1 - base / eval)
         return f'+ {pcnt:05.2f}%'
-    
+
+def confignums(itm):
+    nums = "".join([c for c in itm[1] if c.isdigit() or c == ' '])
+    return [int(s) for s in nums.split()] + [itm[0]]
+
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('-base', required=True)
@@ -35,7 +39,7 @@ if __name__ == '__main__':
 
     print('| FILE                 | CONFIG               | DEFLATE Δ | TIME Δ    |')
     print('|----------------------|----------------------|-----------|-----------|')
-    for itm in sorted(set(br.keys()) | set((er.keys()))):
+    for itm in sorted(set(br.keys()) | set((er.keys())), key=confignums):
         (file, config) = itm
         line = f'| {file.ljust(20)} | {config.ljust(20)} | '
         if itm not in br:
