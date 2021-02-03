@@ -9,7 +9,7 @@ def readresults(filename):
         result = {}
         for row in reader:
             result[(row[0], row[1])] = {
-                    'sizepcnt': float(row[2][:-1]),
+                    'sizepcnt': 100 - float(row[2][:-1]),
                     'time': float(row[3][:-1]),
                 }
     return result
